@@ -18,7 +18,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/message', function () {
-    return view('welcome');
-});
 
+// Path Prefixes
+Route::prefix('dashboard')->group(function() {
+    Route::get('/', function() {
+        return 'dashboard/';
+    });
+
+    Route::get('/users', function() {
+        return '/dashboard/user';
+    });
+
+    Route::get('/message',function(){
+        return '/dashboard/message';
+    });
+
+
+});
